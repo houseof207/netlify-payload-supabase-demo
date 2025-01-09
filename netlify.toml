@@ -1,2 +1,2 @@
-[build.environment]
-  SHARP_IGNORE_GLOBAL_LIBVIPS = "1"
+[functions]
+  included_files = ["node_modules/@img/**/*"]
