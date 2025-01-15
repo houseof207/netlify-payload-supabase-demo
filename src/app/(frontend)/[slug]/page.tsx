@@ -15,6 +15,10 @@ import { generateMeta } from '@/utilities/generateMeta'
 import PageClient from './page.client'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 
+import { handlePassword } from '../password/submit'
+
+import { cookies } from 'next/headers'
+
 export async function generateStaticParams() {
   const payload = await getPayload({ config: configPromise })
   const pages = await payload.find({
@@ -63,6 +67,31 @@ export default async function Page({ params: paramsPromise }: Args) {
 
   if (!page) {
     return <PayloadRedirects url={url} />
+  }
+
+  const Form = () => {
+    return (
+      <form action={handlePassword}>
+        <label className="block">Password</label>
+        <input type="password" name="password" className="text-black" />
+        <input type="hidden" name="slug" value={slug} />
+      </form>
+    )
+  }
+
+  if (page.password) {
+    const cookieStore = await cookies()
+    const authed = cookieStore.get(`authed-${slug}`)
+
+    if (!authed) {
+      return (
+        <article className="pt-16 pb-24">
+          <div className="mx-auto max-w-xs">
+            <Form />
+          </div>
+        </article>
+      )
+    }
   }
 
   const { hero, layout } = page

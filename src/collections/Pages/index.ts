@@ -64,6 +64,13 @@ export const Pages: CollectionConfig<'pages'> = {
       required: true,
     },
     {
+      name: 'password',
+      type: 'text',
+      admin: {
+        placeholder: 'Password protect page',
+      },
+    },
+    {
       type: 'tabs',
       tabs: [
         {
