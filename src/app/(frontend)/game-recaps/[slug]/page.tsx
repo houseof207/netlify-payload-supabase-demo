@@ -14,26 +14,6 @@ import { generateMeta } from '@/utilities/generateMeta'
 import { LivePreviewListener } from '@/components/LivePreviewListener'
 import { PasswordProtectGameRecapClient } from '@/PasswordProtect/Component.client'
 
-export async function generateStaticParams() {
-  const payload = await getPayload({ config: configPromise })
-  const gameRecaps = await payload.find({
-    collection: 'game-recaps',
-    draft: false,
-    limit: 1000,
-    overrideAccess: false,
-    pagination: false,
-    select: {
-      slug: true,
-    },
-  })
-
-  const params = gameRecaps.docs.map(({ slug }) => {
-    return { slug }
-  })
-
-  return params
-}
-
 type Args = {
   params: Promise<{
     slug?: string
