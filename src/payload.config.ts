@@ -58,6 +58,9 @@ export default buildConfig({
     redirectsPlugin({
       collections: ['pages'],
       overrides: {
+        admin: {
+          group: false,
+        },
         // @ts-expect-error - This is a valid override, mapped fields don't resolve to the same type
         fields: ({ defaultFields }) => {
           return defaultFields.map((field) => {
