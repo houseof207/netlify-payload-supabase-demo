@@ -18,6 +18,8 @@
     "@payloadcms/db-postgres": "latest",
     "@payloadcms/live-preview-react": "latest",
     "@payloadcms/next": "latest",
+    "@payloadcms/plugin-nested-docs": "latest",
+    "@payloadcms/plugin-redirects": "latest",
     "@payloadcms/richtext-lexical": "latest",
     "@payloadcms/storage-s3": "latest",
     "clsx": "^2.1.1",
