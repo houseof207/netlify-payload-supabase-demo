@@ -1,0 +1,49 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans: var(--font-open-sans);
+  --font-headline: var(--font-oswald);
+
+  --color-red: #af0d16;
+}
+
+@utility container {
+  padding-inline: 20px;
+}
+
+.richtext {
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-headline;
+  }
+
+  h1 {
+    font-size: clamp(34px, 8vw, 42px);
+  }
+
+  h2 {
+    @apply xl:text-[22px];
+  }
+
+  p {
+    @apply my-5;
+  }
+
+  ul.list-bullet {
+    @apply my-5 ml-10 list-disc space-y-3;
+  }
+
+  ol.list-number {
+    @apply my-5 ml-10 list-decimal space-y-3;
+  }
+
+  strong {
+    @apply font-semibold;
+  }
+
+  a {
+    @apply text-red hover:underline;
+  }
+}
